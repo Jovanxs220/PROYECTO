@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PINTURAS HEX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> 
+<style>
+
+        a  { color:#ffffff; }
+        a {font-size: 18px;}
+        a:visited { color:#ffffff; }
+        a:hover { color:#ffffff; }
+        a:active { color:#ffffff; }
+    *{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+    }
+
+    body{
+        text-align: center;
+        font-family: sans-serif;
+    }
+    .head{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 63px;
+        background: #171717;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+    }
+    .navbar{
+        display: flex;
+        margin-right: 10px;
+    }
+    .logo{
+        margin-left: 30px;
+    }
+    .logo a{
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+    .navbar a{
+        display: block;
+        padding: 23px 20px;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+    .navbar a:hover{
+        background-color: #3f3f3f;
+    }
+    .header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header{
+        height: 60vh !important;
+        background: url(bg1.jpg) no-repeat center;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .title{
+        margin-bottom: 40px;
+        font-size: 60px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+    }
+    p{
+        margin-bottom: 40px;
+        font-size: 22px;
+        color: white;
+        padding: 0 100px;
+    }
+    .btn{
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 40px;
+        border: 2px solid #2271b3;
+        color: white;
+        text-decoration: none;
+        background: #2271b3;
+    }
+    .btn:hover{
+        background: none;
+    }
+    .btn-home{
+        display: flex;
+    }
+    .btn-home a{
+        margin: 0 10px;
+    }
+    .content{
+        height: 160vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .sau{
+        padding: 10%;
+        margin-bottom: 15px;
+        background: #1f1d1d;
+    }
+    .box-container{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .box-container .box{
+        height: 20rem;
+        width: 20rem;
+        background: #101010;
+        text-align: center;
+        border-radius: 1rem;
+        box-shadow: 0 .3rem 5rem rgba(0,0,0.5);
+        margin: 2rem;
+    }
+    .box-container .box i{
+        height: 3rem;
+        width: 3rem;
+        line-height: center;
+        border-radius: 50%;
+        color: white;
+        background: #2271b3;
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+
+    .box-container .box h3{
+        font-size: 25px;
+        color: #2271b3;
+    }
+    .box-container .box p{
+        padding: 0 10px;
+        font-size: 15px;
+    }
+    .about{
+        background: #131313;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-top: 25px;
+    }
+    .price{
+        height: 70vh !important;
+        background: url(bg.jpg) no-repeat center;
+        background-attachment: fixed;
+        background-size: cover;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .contact{
+        padding-top:  10%;
+        background: #1f1d1d;
+        padding-bottom: 30%;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .map{
+        height: 20rem;
+        width: 22rem;
+        background: #101010;
+        text-align: center;
+        border-radius: 1rem;
+        box-shadow: 0 0.3rem 8rem rgba(0,0,0);
+        margin: 2rem;
+        align-items: center;
+    }
+    .img1 {
+  width: 175px;
+  height: 175px;
+  transition: transform 0.2s ease-in-out;
+}
+.img1_1 {
+  width: 175px;
+  height: 175px;
+  transition: transform 0.2s ease-in-out;
+}
+.img2 {
+  width: 750px;
+  height: 500px;
+}
+.img1:hover {
+  transform: scale(1.25);
+}
+
+.p1{
+    font-size: 15px;
+}
+</style> 
+    <SCRIPT LANGUAGE="javascript">
+      var nom;
+      nom=prompt("Escribe tu nombre:","NOMBRE")
+      alert("Mucho gusto, "+nom);
+$(document).ready(function() {
+	$("nav ul li a").click(function(event) {
+		event.preventDefault();
+		var section = $(this).attr("href");
+		$("html, body").animate({
+			scrollTop: $(section).offset().top
+		}, 1000, function() {
+			$(section).addClass("slide-in");
+		});
+	});
+});
+    </script>
+<script>
+    var imagenes = ["1.png", "2.png", "3.png","4.png","8.png","5.png","10.png", "9.png", "7.png" , "6.png"];
+    var imagenActual = 0;
+
+    function cambiarImagen() {
+        imagenActual++;
+        if (imagenActual == imagenes.length) {
+            imagenActual = 0;
+        }
+        document.getElementById("mi-imagen").src = imagenes[imagenActual];
+    }
+</script>
+</head>
+<body>
+    <div class="head">
+        <div class="logo">
+            <a href="chanwguich.html">HEX</a>
+        </div>
+
+        <nav class="navbar">
+            <a href="#seccion1">Inicio</a>
+            <a href="#seccion2">Productos</a>
+            <a href="#seccion3">Nosotros</a>
+            <a href="#seccion6">imagenes</a>
+            <a href="#seccion4">Precio</a>
+            <a href="#seccion5">Contacto</a>
+        </nav>
+
+    </div>
+
+    <header class="content header" id="seccion1">
+        <h2 class="title">Inicio</h2>
+        <p>
+            Bienvenido a nuestra pagina web oficial de pinturas hex aqui podras encontras la variedad de productos que tenemos como asi los servicios en los cuales ofrecemos y tambien por ultimo acerca de de nosotros y nuestro contactos por alguna duda nos alegra que nos allas elegido como tu opcion para darle color a tu vida
+        </p>
+
+        <div class="btn-home">
+            <a href="https://www.comex.com.mx/" class="btn">Saber mas</a>
+        </div>
+    </header>
+
+    <section class="content sau"id="seccion2">
+        <h2 class="title" ><br><br>Productos</h2>
+        <p>
+            Conoce la gran variedad de pinturas, recubrimientos, impermeabilizantes, aislantes térmicos, barnices, selladores y accesorios para pintar de hex.¡Elige tu solución! 
+        <div class="box-container">
+            <div class="box">
+                <center>
+                <img class="img1"src="p.png" width="100px" height="100px">
+            </center>
+                <h3>Pinturas</h3>
+                <p>
+                    recubre, protege y decora el elemento sobre el que se ha aplicado.
+                </p>
+            </div>
+            <div class="box">
+                <img class="img1"src="r.png" width="100px" height="100px">
+                <h3>Recubrimientos</h3>
+                <p>
+                    materiales que se aplican como una capa protectora en una superficie llamada sustrato; es decir, se puede aplicar un recubrimiento a paredes, vigas, láminas, techos, madera y otras superficies.
+                </p>
+            </div>
+            <div class="box">
+                <img class="img1" src="i.png" width="100px" height="100px">
+                <h3>Impermeabilizantes</h3>
+                <p>
+                    es una sustancia hecha de resinas, fibras de vidrio, emulsiones, polímeros y otros materiales que se aplica a una superficie para impedir que el agua u otros líquidos se filtren.
+                </p>
+            </div>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <img class="img1"src="v.png" width="100px" height="100px">
+                <h3>Vinilicas</h3>
+                <p>
+                    son a base de agua, por lo que su secado es rápido, pueden conseguirse en acabados satinados o mate, son de poca toxicidad y se aplican fácilmente con brocha o rodillo.
+                </p>
+            </div>
+            <div class="box">
+                <img class="img1"src="e.png" width="100px" height="100px">
+                <h3>Esmaltes</h3>
+                <p>
+                    El uso principal de los esmaltes es el de pintar o proteger determinadas piezas de mobiliario, carpintería y superficies metálicas. Además, existen esmaltes específicos para superficies cerámicas como azulejos, baños, lavabos, radiadores
+                </p>
+            </div>
+            <div class="box">
+                <img class="img1"src="a.png" width="100px" height="100px">
+                <h3>areosoles</h3>
+                <p>
+                    En ingeniería ambiental, se denomina aerosol a un coloide de partículas sólidas o líquidas suspendidas en un gas.​ El término aerosol se refiere tanto a las partículas como al gas en el que las partículas están suspendidas
+                </p>
+            </div>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <img class="img1"src="p2.png" width="100px" height="100px">
+                <h3>Pegamento</h3>
+                <p>
+                    Pega madera, metal, fibracel, piel, cuero, gamuza, suela y todo tipo de telas. También se recomienda para linoliums, loseta vinílica, zoclos, paneles laminados, placa de fibra, espuma de poliuretano, etc.”
+                </p>
+            </div>
+            <div class="box">
+                <img class="img1"src="s.png" width="100px" height="100px">
+                <h3>Salvantes</h3>
+                <p>
+                    Diseñados para ayudar a lograr un óptimo desempeño en la aplicación de los productos, logrando gran nivelación de la película del acabado al no modificar los componentes del recubrimiento.
+                </p>
+            </div>
+            <div class="box">
+                <img class="img1"src="p3.png" width="100px" height="100px">
+                <h3>Proteccion profesional</h3>
+                <p>
+                    Es la línea de productos conformada por sistemas de protección a metales con preparadores de superficie, primarios y esmaltes; recubrimientos para pisos y pintura para señalización vial. 
+                </p>
+            </div>
+        </div>
+        </p>
+    </section>
+
+    <section class="content about"id="seccion3">
+        <h2 class="title" >Nosotros</h2>
+        <p>
+            Había una vez en un barrio de la ciudad, dos compadres y vecinos, Juan y Pedro, que eran pintores. Ambos compartían una pasión por la pintura y estaban hartos de usar marcas de pintura barata que se despintaban rápido.
+
+Un día, mientras estaban pasando el rato en una casa, se les ocurrió una idea increíble. ¿Por qué no crear su propia marca de pintura que fuera genial y fácil de usar? Así nació la idea de Hex.
+
+Juan y Pedro se pusieron a trabajar inmediatamente. Pasaron días y noches mezclando diferentes colores y texturas hasta que finalmente encontraron la fórmula perfecta. La pintura era resistente al agua, resistente a los rayos UV y se secaba rápidamente. Sabían que tenían algo grandioso en sus manos.
+
+Cuando empezaron a usar Hex en sus trabajos, los vecinos empezaron a notar la diferencia. La pintura se veía genial y duraba mucho más tiempo que las marcas anteriores que usaban. Pronto, Juan y Pedro empezaron a recibir solicitudes de sus vecinos para usar Hex en sus propias casas.
+
+Pero la competencia no se quedó de brazos cruzados. Pinches envidiosos, empezaron a tirarles mala onda a Hex, diciendo que era una marca falsa. Pero Juan y Pedro no se dejaron intimidar y empezaron a correr la voz de que Hex era la pura neta.
+
+Con el tiempo, Hex se convirtió en una marca de pintura genial en toda la ciudad y más allá. Los compas pintores crearon una empresa y se pusieron bien chingones, empezando a burlarse de la competencia en sus comerciales. Decían cosas como "¿pintura barata? No, gracias. Prefiero Hex, wey" y "Si tu pintura se despega como una güera en la playa, necesitas Hex, cabrón".
+
+Así es como la pasión, el trabajo duro y la perseverancia de dos compas llevaron a la creación de una marca exitosa y genial. Y ya saben, si quieren pintar su casa como un pro, Hex es lo mejor del mundo, compadres.
+        </p>
+        <section class="content about"id="seccion6">
+        <h2 class="title">Imagenes de nuestro trabajo</h2>
+        <img id="mi-imagen" class ="img2" src="1.png" onclick="cambiarImagen()">
+        </section>
+
+    </section>
+
+
+    <section class="content price"id="seccion4">
+        <h2 class="title" >Precio</h2>
+        <p>
+            somos una marca comprometida con nuestros clientes y por eso nos esforzamos por ofrecer los precios más competitivos del mercado sin comprometer la calidad. Creemos que la calidad y el precio justo deben ir de la mano, y es por eso que estamos dedicados a ofrecer la mejor relación calidad-precio posible.
+            Además, nuestra pintura es fácil de aplicar y viene en una amplia gama de colores, lo que la hace ideal para cualquier proyecto de pintura. Ya sea que estés renovando tu hogar o trabajando en un proyecto creativo, nuestra pintura es la elección perfecta.
+            ,no solo creemos en la calidad de nuestra pintura, sino que respaldamos nuestros productos con una garantía de satisfacción del cliente. 
+           
+        </p> 
+    </section>
+
+    <section class="content contact"id="seccion5">
+        <h2 class="title" >Contacto</h2>
+        
+        <p>Nos puedes contactar por nuestro correo electronico <u>hexof1104@gmail.com</u> o por nuestro numero de telefono ya sea whatsapp o llamada al <i>3751403432</i>
+        <p>
+        <figure class="map">
+            <a href="https://www.google.com.mx/maps/place/Tienda+Comex/@20.5474297,-103.5070232,14z/data=!4m10!1m2!2m1!1scomex!3m6!1s0x842f552084a246ff:0x2bb6d0b547a9907b!8m2!3d20.5474297!4d-103.4709743!15sCgVjb21leCIDiAEBWgciBWNvbWV4kgELcGFpbnRfc3RvcmXgAQA!16s%2Fg%2F1tctr_h4"><img class="img3" src="img/mapa.img" width="300"></figure></a>
+            <div class="btn-home2">
+                <a href="chanwguich.html" class="btn">ISTER EGG</a>
+                <br><br>
+                <h2 class="title">MINIJUEGO HEX</h2>
+                
+                
+                <marquee direction="down" width="966" height="644" behavior="alternate" style="border: solid #2271b3">
+                <marquee 20px style="color: white;" behavior="alternate">
+                    <a href="https://www.comex.com.mx/"> <img class ="img1"src="comex.png"></a>
+                </marquee>
+                </marquee>
+                
+            </div>
+        </section>
+</body> 
+</html>

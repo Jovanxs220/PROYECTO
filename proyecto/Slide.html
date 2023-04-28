@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo de animación de slide</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #333;
+	color: #fff;
+	padding: 10px 20px;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+}
+
+nav ul li {
+	margin-right: 20px;
+}
+
+nav ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+section {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+section:nth-child(even) {
+	background-color: #eee;
+}
+
+section h2 {
+	font-size: 4rem;
+	margin-bottom: 20px;
+}
+
+section p {
+	font-size: 2rem;
+}
+
+.slide-in {
+	animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+	from {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+</style>
+<script>
+$(document).ready(function() {
+	$("nav ul li a").click(function(event) {
+		event.preventDefault();
+		var section = $(this).attr("href");
+		$("html, body").animate({
+			scrollTop: $(section).offset().top
+		}, 1000, function() {
+			$(section).addClass("slide-in");
+		});
+	});
+});
+</script>
+</head>
+
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="#section1">Sección 1</a></li>
+				<li><a href="#section2">Sección 2</a></li>
+				<li><a href="#section3">Sección 3</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section id="section1">
+		<h2>Sección 1</h2>
+		<p>Contenido de la sección 1</p>
+	</section>
+
+	<section id="section2">
+		<h2>Sección 2</h2>
+		<p>Contenido de la sección 2</p>
+	</section>
+
+	<section id="section3">
+		<h2>Sección 3</h2>
+		<p>Contenido de la sección 3</p>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
